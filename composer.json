@@ -1,0 +1,19 @@
+{
+    "name": "lsoex/wallpaper-api",
+    "description": "A wallpaper-api SDK.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lsoex",
+            "email": "i@lsoex.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Lsoex\\Wallpaper\\": "./src"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.3"
+    }
+}
