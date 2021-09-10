@@ -1,4 +1,4 @@
-<h1 align="center">Wallpaper</h1>
+<h1 align="center">Wallpaper Api</h1>
 
 <p align="center">基于第三方的 壁纸 接口组件。</p>
 
