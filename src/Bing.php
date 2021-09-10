@@ -14,34 +14,17 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Lsoex\Wallpaper\Exceptions\HttpException;
 use Lsoex\Wallpaper\Exceptions\InvalidArgumentException;
+use Lsoex\Wallpaper\Lib\Base;
 
-class Bing
+class Bing extends Base
 {
     protected  $url = 'https://cn.bing.com/HPImageArchive.aspx';
-
-    protected  $guzzleOptions = [];
-
-    /**
-     * @return Client
-     */
-    public function getHttpClient()
-    {
-        return new Client($this->guzzleOptions);
-    }
-
-    /**
-     * @param $options
-     */
-    public function setGuzzleOptions($options)
-    {
-        $this->guzzleOptions = $options;
-    }
 
     /**
      * @throws HttpException
      * @throws InvalidArgumentException
      */
-    public function getBing($start = 0, $count = 1, $format = 'json')
+    public function getBing($start = -1, $count = 1, $format = 'json')
     {
         $format = \strtolower($format);
         if (!\in_array(($format), ['xml', 'json'])) {
@@ -68,15 +51,7 @@ class Bing
             'format' => $format,
         ];
 
-        try {
-            $response = $this->getHttpClient()->get($this->url, [
-                'query' => $query,
-            ])->getBody()->getContents();
-        } catch (GuzzleException $e) {
-            throw new HttpException($e->getMessage(), $e->getCode(), $e);
-        }
-
-        return 'json' === $format ? \json_decode($response, true) : $response;
+        return $this->send($this->url,$query,$format);
     }
 
     /**

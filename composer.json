@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Lsoex\\Wallpaper\\": "./src"
+            "Lsoex\\Wallpaper\\": "./src/"
         }
     },
     "require": {
