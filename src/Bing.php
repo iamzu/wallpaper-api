@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the lsoex/wallpaper.
+ * This file is part of the lsoex/wallpaper-api.
  *
  * (c) lsoex <i@lsoex.com>
  *
@@ -17,9 +17,9 @@ use Lsoex\Wallpaper\Exceptions\InvalidArgumentException;
 
 class Bing
 {
-    protected string $url = 'https://cn.bing.com/HPImageArchive.aspx';
+    protected  $url = 'https://cn.bing.com/HPImageArchive.aspx';
 
-    protected array $guzzleOptions = [];
+    protected  $guzzleOptions = [];
 
     /**
      * @return Client

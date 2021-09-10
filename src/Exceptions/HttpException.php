@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the lsoex/wallpaper.
+ * This file is part of the lsoex/wallpaper-api.
  *
  * (c) lsoex <i@lsoex.com>
  *
