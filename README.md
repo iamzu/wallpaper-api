@@ -175,3 +175,4 @@ array | string   getBing(int $start, int $count, $format = 'json')
 |start| 从几开始，默认 0 | 可选 |
 |count| 截取数量，默认 1 | 可选 |
 
+欢迎点评→[issue](https://github.com/lsoex/wallpaper-api/issues)
