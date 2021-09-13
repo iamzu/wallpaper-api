@@ -51,26 +51,24 @@ $zero = new Zero();
 ```
 ### 获取壁纸分类
 ```php 
-//v1,v2 返回不同的数据结构
 $response = $zero->getCategories();
-$response = $zero->getCategoriesV2();
 ```
 
 ### 根据壁纸分类ID获取分类下壁纸图片
 ```php 
-$response = $zero->getAppsByCategory($cid,$start,$count)
+$response = $zero->getAppsByCategory($cid,$page,$count)
 ```
 
-### 获取最近更新的壁纸
+### 获取最新壁纸
 ```php 
-$response = $zero->getAppsByOrder($start,$count)
+$response = $zero->getAppsNews($page,$count)
 ```
 
 ### 参数说明
 | 参数 | 说明 | 选择 |
 |----|-----|------|
 |cid| 获取到的分类ID | 必填 |
-|start| 从几开始，默认 1 | 可选 |
+|page| 分页从几开始，默认 1 | 可选 |
 |count| 截取数量，默认 10 | 可选 |
 
 欢迎点评→[issue](https://github.com/lsoex/wallpaper-api/issues)

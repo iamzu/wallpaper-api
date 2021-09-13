@@ -15,29 +15,22 @@ class Zero extends Base
      */
     public function getCategories()
     {
-        return $this->getCate('getAllCategories');
+        $url = 'http://wp.birdpaper.com.cn/intf/getCategory';
+        return $this->send($url, []);
     }
 
-    /**
-     * @throws HttpException
-     * @return mixed|string
-     */
-    public function getCategoriesV2()
-    {
-        return $this->getCate('getAllCategoriesV2');
-    }
 
     /**
      * @param  int  $cid
-     * @param  int  $start
+     * @param  int  $page
      * @param  int  $count
      * @throws HttpException
      * @throws InvalidArgumentException
      * @return mixed|string
      */
-    public function getAppsByCategory($cid, $start = 1, $count = 10)
+    public function getAppsByCategory($cid, $page = 1, $count = 10)
     {
-        $url = 'http://wallpaper.apc.360.cn/index.php';
+        $url = 'http://wp.birdpaper.com.cn/intf/GetListByCategory';
 
         $cid = (int) ($cid);
         if ($cid <= 0) {
@@ -47,64 +40,72 @@ class Zero extends Base
         if ($count <= 0) {
             throw new InvalidArgumentException('Invalid response count: '.$count);
         }
-        $start = (int) ($start);
-        if ($start <= 0) {
-            throw new InvalidArgumentException('Invalid response start: '.$start);
+        $page = (int) ($page);
+        if ($page <= 0) {
+            throw new InvalidArgumentException('Invalid response start: '.$page);
         }
         $query = [
-            'c'     => 'WallPaper',
-            'a'     => 'getAppsByCategory',
-            'cid'   => $cid,
-            'start' => $start,
-            'count' => $count,
+            'cids'   => $cid,
+            'pageno' => $page,
+            'count'  => $count,
         ];
         return $this->send($url, $query);
     }
 
     /**
-     * @param  int  $start
+     * @param  int  $page
      * @param  int  $count
      * @throws HttpException
      * @throws InvalidArgumentException
      * @return mixed|string
      */
-    public function getAppsByOrder($start = 1, $count = 10)
+    public function getAppsNews($page = 1, $count = 10)
     {
-        $url = 'http://wallpaper.apc.360.cn/index.php';
+        $url = 'http://wp.birdpaper.com.cn/intf/newestList';
         $count = (int) ($count);
         if ($count <= 0) {
             throw new InvalidArgumentException('Invalid response count: '.$count);
         }
-        $start = (int) ($start);
-        if ($start <= 0) {
-            throw new InvalidArgumentException('Invalid response start: '.$start);
+        $page = (int) ($page);
+        if ($page <= 0) {
+            throw new InvalidArgumentException('Invalid response start: '.$page);
         }
         $query = [
-            'c'     => 'WallPaper',
-            'a'     => 'getAppsByOrder',
-            'order' => 'create_time',
-            'start' => $start,
-            'count' => $count,
+            'pageno' => $page,
+            'count'  => $count,
         ];
         return $this->send($url, $query);
     }
 
     /**
-     * @param $version
+     * @param  string  $content
+     * @param  int  $page
+     * @param  int  $count
      * @throws HttpException
+     * @throws InvalidArgumentException
      * @return mixed|string
      */
-    private function getCate($version)
+    public function search($content = '', $page = 1, $count = 10)
     {
-        $url = 'http://cdn.apc.360.cn/index.php';
-
+        $url = 'http://wp.birdpaper.com.cn/intf/search';
+        $count = (int) ($count);
+        if ($count <= 0) {
+            throw new InvalidArgumentException('Invalid response count: '.$count);
+        }
+        $page = (int) ($page);
+        if ($page <= 0) {
+            throw new InvalidArgumentException('Invalid response page: '.$page);
+        }
+        $content = trim($content);
+        if (strlen($content) <= 0) {
+            throw new InvalidArgumentException('Invalid response content: '.$content);
+        }
         $query = [
-            'c'    => 'WallPaper',
-            'a'    => $version,
-            'from' => '360chrome',
+            'content' => $content,
+            'pageno'  => $page,
+            'count'   => $count,
         ];
         return $this->send($url, $query);
     }
-
 
 }
