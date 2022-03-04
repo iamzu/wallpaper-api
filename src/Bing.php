@@ -8,13 +8,13 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Lsoex\Wallpaper;
+namespace Drizzle\Wallpaper;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use Lsoex\Wallpaper\Exceptions\HttpException;
-use Lsoex\Wallpaper\Exceptions\InvalidArgumentException;
-use Lsoex\Wallpaper\Lib\Base;
+use Drizzle\Wallpaper\Exceptions\HttpException;
+use Drizzle\Wallpaper\Exceptions\InvalidArgumentException;
+use Drizzle\Wallpaper\Lib\Base;
 
 class Bing extends Base
 {
@@ -24,7 +24,7 @@ class Bing extends Base
      * @throws HttpException
      * @throws InvalidArgumentException
      */
-    public function getBing($start = -1, $count = 1, $format = 'json')
+    public function recentWallpapers($start = -1, $count = 1, $format = 'json')
     {
         $format = \strtolower($format);
         if (!\in_array(($format), ['xml', 'json'])) {
@@ -60,8 +60,8 @@ class Bing extends Base
      * @throws InvalidArgumentException
      * @return mixed|string
      */
-    public function getLive($format = 'json')
+    public function todayWallpaper($format = 'json')
     {
-        return $this->getBing(0, 1, $format);
+        return $this->recentWallpapers(0, 1, $format);
     }
 }

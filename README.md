@@ -5,13 +5,13 @@
 ## 安装
 
 ```sh
-$ composer require lsoex/wallpaper-api -vvv
+$ composer require dirzzle/wallpaper-api -vvv
 ```
 
 ## 必应壁纸
 
 ```php
-use Lsoex\Wallpaper\Bing;
+use Drizzle\Wallpaper\Bing;
 
 $bing = new Bing();
 ```
@@ -19,13 +19,13 @@ $bing = new Bing();
 ### 获取今日壁纸
 
 ```php
-$response = $bing->getLive();
+$response = $bing->todayWallpaper();
 ```
 
 ### 获取近期壁纸
 
 ```php
-$response = $bing->getBing($start,$count);
+$response = $bing->recentWallpapers($start,$count);
 ```
 
 ### 获取 XML 格式返回值
@@ -33,7 +33,7 @@ $response = $bing->getBing($start,$count);
 以上两个方法最后一个参数为返回值类型，可选 `json` 与 `xml`，默认 `json`：
 
 ```php
-$response = $bing->getLive('xml');
+$response = $bing->todayWallpaper('xml');
 ```
 
 ### 参数说明
@@ -45,7 +45,7 @@ $response = $bing->getLive('xml');
 
 ## 360壁纸
 ```php 
-use Lsoex\Wallpaper\Zero;
+use Drizzle\Wallpaper\Zero;
 
 $zero = new Zero();
 ```
@@ -71,4 +71,4 @@ $response = $zero->getAppsNews($page,$count)
 |page| 分页从几开始，默认 1 | 可选 |
 |count| 截取数量，默认 10 | 可选 |
 
-欢迎点评→[issue](https://github.com/lsoex/wallpaper-api/issues)
+欢迎点评→[issue](https://github.com/iamzu/wallpaper-api/issues)

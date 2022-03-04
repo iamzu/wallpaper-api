@@ -1,10 +1,10 @@
 <?php
 
-namespace Lsoex\Wallpaper\Lib;
+namespace Drizzle\Wallpaper\Lib;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use Lsoex\Wallpaper\Exceptions\HttpException;
+use Drizzle\Wallpaper\Exceptions\HttpException;
 
 class Base
 {

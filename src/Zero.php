@@ -1,11 +1,11 @@
 <?php
 
-namespace Lsoex\Wallpaper;
+namespace Drizzle\Wallpaper;
 
 use GuzzleHttp\Exception\GuzzleException;
-use Lsoex\Wallpaper\Exceptions\HttpException;
-use Lsoex\Wallpaper\Exceptions\InvalidArgumentException;
-use Lsoex\Wallpaper\Lib\Base;
+use Drizzle\Wallpaper\Exceptions\HttpException;
+use Drizzle\Wallpaper\Exceptions\InvalidArgumentException;
+use Drizzle\Wallpaper\Lib\Base;
 
 class Zero extends Base
 {

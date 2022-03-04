@@ -1,16 +1,16 @@
 {
-    "name": "lsoex/wallpaper-api",
+    "name": "drizzle/wallpaper-api",
     "description": "A wallpaper-api SDK.",
     "license": "MIT",
     "authors": [
         {
-            "name": "lsoex",
-            "email": "i@lsoex.com"
+            "name": "drizzle",
+            "email": "rn1408@126.com"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Lsoex\\Wallpaper\\": "./src/"
+            "Drizzle\\Wallpaper\\": "./src/"
         }
     },
     "require": {
